@@ -14,7 +14,7 @@ const port = process.env.PORT || 5000;
 
 const connect =() =>{
     try {
-        mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/Oluwa', {
+        mongoose.connect(process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/Oluwa', {
             useNewUrlParser: true, useUnifiedTopology: true
         });
         console.log("Connected to Database Successfully");
