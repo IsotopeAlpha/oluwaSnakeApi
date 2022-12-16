@@ -10,11 +10,11 @@ import dotenv from 'dotenv';
 const app = express();
 dotenv.config();
 mongoose.set('strictQuery', true);
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 5000;
 
 const connect =() =>{
     try {
-        mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/OluwaSnake', {
+        mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/Oluwa', {
             useNewUrlParser: true, useUnifiedTopology: true
         });
         console.log("Connected to Database Successfully");

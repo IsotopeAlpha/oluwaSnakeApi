@@ -1,5 +1,6 @@
 import express from 'express';
 import { updateUser, creatUser, getUser, getUsers, deleteUser } from '../controllers/User.js';
+
 const router = express.Router();
 
 router.post("/", creatUser);

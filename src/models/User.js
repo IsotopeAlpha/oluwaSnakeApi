@@ -1,27 +1,22 @@
 import mongoose from 'mongoose';
 
-const UserSchema = new mongoose.Schema({
+const CodeSchema = new mongoose.Schema({
     email:{
         type: String,
-        required: true,
-        unique: true
     },
     name:{
         type: String
     },
     code:{
-        type: String
+        type: String,
+        required: true,
+        unique: true
     },
-    item:{
-        type: [String]
-    },
-    quantity:{
-        type: [String]
-    },
+    item:[Map],
     status:{
         type: String,
         required: true
     }
 },{timestamps:true});
 
-export default mongoose.model("Users", UserSchema)
+export default mongoose.model("Tracking Code", CodeSchema)
