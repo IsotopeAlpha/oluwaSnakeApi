@@ -1,15 +1,16 @@
-const express = require('express');
-const bodyParser = require('body-parser');
-const cors = require('cors');
-const helmet = require('helmet');
-const morgan = require('morgan');
-const dotenv = require('dotenv');
-const mongoose = require('mongoose');
+import express from 'express';
+import cors from 'cors';
+import helmet from 'helmet';
+import morgan from 'morgan';
+import mongoose from 'mongoose';
+import userRoute from '../src/routes/User.js';
+import bodyParser from 'body-parser';
+import dotenv from 'dotenv';
 
 const app = express();
 dotenv.config();
-
-const port = process.env.PORT || 8000;
+mongoose.set('strictQuery', true);
+const port = process.env.PORT || 3000;
 
 const connect =() =>{
     try {
@@ -23,10 +24,14 @@ const connect =() =>{
 }
 connect();
 
+app.use(express());
 app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended:true}));
 app.use(helmet());
 app.use(cors());
 app.use(morgan('combined'));
+
+app.use("/user", userRoute);
 
 app.get('/', (req, res)=>{
     res.json("This is Oluwa Snake Website Api")

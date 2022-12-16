@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+import mongoose from 'mongoose';
 
 const UserSchema = new mongoose.Schema({
     email:{
@@ -17,6 +17,10 @@ const UserSchema = new mongoose.Schema({
     },
     quantity:{
         type: [String]
+    },
+    status:{
+        type: String,
+        required: true
     }
 },{timestamps:true});
 
