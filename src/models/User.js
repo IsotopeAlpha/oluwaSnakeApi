@@ -28,6 +28,9 @@ const CodeSchema = new mongoose.Schema({
     },
     date:{
         type: String
+    },
+    mylocation:{
+        type: String
     }
 },{timestamps:true});
 
