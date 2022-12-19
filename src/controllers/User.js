@@ -1,10 +1,12 @@
 import User from "../models/User.js";
+import crypto from 'crypto';
 
 export const creatUser = async (req, res) => {
     try {
-        const newUser = new User(req.body);
+        var newCode = crypto.randomBytes(3).toString('hex');
+        const newCode = new User({...req.body, code: newCode});
         const savedUser = await newUser.save()
-        res.status(200).json({ status: "ok", msg: "User Created Successfully", data: savedUser });
+        res.status(200).json({ status: "ok", msg: "User with Code Created Successfully", data: savedUser });
     } catch (error) {
         res.status(400).json({status: "error", message:"Error Creating User", data: error}); 
         console.log(error)
