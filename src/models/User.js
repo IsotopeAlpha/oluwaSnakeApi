@@ -13,6 +13,9 @@ const CodeSchema = new mongoose.Schema({
     location:{
         type: String
     },
+    country:{
+        type: String
+    },
     code:{
         type: String,
         required: true,
@@ -23,7 +26,7 @@ const CodeSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    total:{
+    date:{
         type: String
     }
 },{timestamps:true});
