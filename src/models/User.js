@@ -7,6 +7,12 @@ const CodeSchema = new mongoose.Schema({
     name:{
         type: String
     },
+    phone:{
+        type: String
+    },
+    location:{
+        type: String
+    },
     code:{
         type: String,
         required: true,
@@ -16,6 +22,9 @@ const CodeSchema = new mongoose.Schema({
     status:{
         type: String,
         required: true
+    },
+    total:{
+        type: String
     }
 },{timestamps:true});
 
